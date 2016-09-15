@@ -1,0 +1,42 @@
+{1 TyXML }
+
+{!modules:
+Tyxml
+}
+
+{2 Types and signatures}
+
+{!modules:
+Html_sigs
+Html_types
+Svg_sigs
+Svg_types
+}
+
+{1 TyXML Functors }
+
+{!modules:
+Html_f
+Svg_f
+Xml_sigs
+Xml_wrap
+Xml_iter
+Xml_print
+}
+
+{1 Ppx library}
+
+{!modules:
+Ppx_tyxml
+}
+
+{1 Camlp4 Syntax extension and parser}
+
+{!modules:
+Pa_tyxml
+Simplexmlparser
+}
+
+{1 Indexes}
+
+{!indexlist}
