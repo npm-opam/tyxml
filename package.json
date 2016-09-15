@@ -1,0 +1,58 @@
+{
+    "name": "tyxml-actual",
+    "exportedEnvVars": {
+        "tyxml_installed": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "true"
+        },
+        "FINDLIB": {
+            "global": true,
+            "resolveAsRelativePath": true,
+            "globalCollisionBehavior": "joinPath",
+            "val": "./_build/ocamlfind/lib"
+        },
+        "version": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "4.0.0"
+        },
+        "PATH": {
+            "global": true,
+            "resolveAsRelativePath": true,
+            "globalCollisionBehavior": "joinPath",
+            "val": "./_build/ocamlfind/bin"
+        },
+        "tyxml_enable": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "enable"
+        },
+        "tyxml_version": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "4.0.0"
+        }
+    },
+    "version": "4.0.0",
+    "dependencies": {
+        "@opam-alpha/re": ">= 1.5.0",
+        "@opam-alpha/alcotest": "*",
+        "@opam-alpha/markup": "*",
+        "@opam-alpha/ocamlfind": "*",
+        "@opam-alpha/uutf": "<= 0.9.4",
+        "@opam-alpha/camlp4": "*",
+        "dependency-env": "https://github.com/npm-ml/dependency-env.git",
+        "substs": "https://github.com/yunxing/substs.git",
+        "@opam-alpha/ocamlbuild": "*",
+        "@opam-alpha/ppx_tools": "*",
+        "nopam": "https://github.com/yunxing/nopam.git",
+        "opam-installer-bin": "https://github.com/yunxing/opam-installer-bin.git"
+    },
+    "scripts": {
+        "postinstall": "eval $(dependencyEnv) && nopam && ocaml setup.ml -configure --${camlp4_enable:-disable}-syntax --${markup+ppx_tools_enable:-disable}-ppx --prefix $opam_prefix && ocaml setup.ml -build && ocaml setup.ml -install && (opam-installer --prefix=$opam_prefix || true)"
+    },
+    "peerDependencies": {
+        "@opam-alpha/ocaml": ">= 4.02.0"
+    }
+}
